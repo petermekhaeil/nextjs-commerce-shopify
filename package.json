@@ -1,0 +1,24 @@
+{
+  "name": "nextjs-commerce-shopify",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/petermekhaeil/nextjs-commerce-shopify.git"
+  },
+  "keywords": [
+    "nextjs",
+    "commerce",
+    "shopify"
+  ],
+  "author": "Peter Mekhaeil <mekhaeil.peter@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/petermekhaeil/nextjs-commerce-shopify/issues"
+  },
+  "homepage": "https://github.com/petermekhaeil/nextjs-commerce-shopify#readme"
+}
