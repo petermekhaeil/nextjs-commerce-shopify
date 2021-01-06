@@ -1,18 +1,17 @@
 ## Table of Contents
 
-- [nextjs-commerce-shopify](#nextjs-commerce-shopify)
-  - [Getting Started](#getting-started)
-    - [CommerceProvider](#commerceprovider)
-  - [Hooks](#hooks)
-    - [usePrice](#useprice)
-    - [useAddItem](#useadditem)
-    - [useRemoveItem](#useremoveitem)
-    - [useUpdateItem](#useupdateitem)
-  - [APIs](#apis)
-    - [getProduct](#getproduct)
-    - [getAllProducts](#getallproducts)
-    - [getCollections](#getcollections)
-    - [getAllPages](#getallpages)
+- [Getting Started](#getting-started)
+  - [CommerceProvider](#commerceprovider)
+- [Hooks](#hooks)
+  - [usePrice](#useprice)
+  - [useAddItem](#useadditem)
+  - [useRemoveItem](#useremoveitem)
+  - [useUpdateItem](#useupdateitem)
+- [APIs](#apis)
+  - [getProduct](#getproduct)
+  - [getAllProducts](#getallproducts)
+  - [getCollections](#getcollections)
+  - [getAllPages](#getallpages)
 
 # nextjs-commerce-shopify
 
@@ -52,6 +51,19 @@ The `config` takes:
 - `token`: Shopify Storefront API Access Token. This is **required**.
 - `currencyCode`: Currency code to use in store. This is **required**.
 
+### useCommerce
+
+Returns the configs that are defined in the nearest `CommerceProvider`. Also provides access to Shopify's `checkout` and `shop`.
+
+```js
+import { useCommerce } from 'nextjs-commerce-shopify';
+
+const { checkout, shop } = useCommerce();
+```
+
+- `checkout`: The information required to checkout items and pay.
+- `shop`: Represents a collection of the general settings and information about the shop.
+
 ## Hooks
 
 ### usePrice
@@ -59,7 +71,7 @@ The `config` takes:
 Display the product variant price according to currency and locale.
 
 ```js
-import usePrice from 'nextjs-commerce-shopify/dist/use-price';
+import { usePrice } from 'nextjs-commerce-shopify';
 
 const { price } = usePrice({
   amount
@@ -74,7 +86,7 @@ Takes in either `amount` or `variant`:
 ### useAddItem
 
 ```js
-import useAddItem from 'nextjs-commerce-shopify/dist/use-add-item';
+import { useAddItem } from 'nextjs-commerce-shopify';
 
 const AddToCartButton = ({ variantId, quantity }) => {
   const addItem = useAddItem();
@@ -93,7 +105,7 @@ const AddToCartButton = ({ variantId, quantity }) => {
 ### useRemoveItem
 
 ```js
-import useRemoveItem from 'nextjs-commerce-shopify/dist/use-remove-item';
+import { useRemoveItem } from 'nextjs-commerce-shopify';
 
 const RemoveButton = ({ item }) => {
   const removeItem = useRemoveItem();
@@ -109,7 +121,7 @@ const RemoveButton = ({ item }) => {
 ### useUpdateItem
 
 ```js
-import useUpdateItem from 'nextjs-commerce-shopify/dist/use-update-item';
+import { useUpdateItem } from 'nextjs-commerce-shopify';
 
 const CartItem = ({ item }) => {
   const [quantity, setQuantity] = useState(item.quantity);
@@ -141,7 +153,7 @@ Collections of APIs to fetch data from a Shopify store:
 Get a single product by its `handle`.
 
 ```js
-import getProduct from 'nextjs-commerce-shopify/dist/api/get-product';
+import { getProduct } from 'nextjs-commerce-shopify';
 
 const product = await getProduct({
   domain,
@@ -153,7 +165,7 @@ const product = await getProduct({
 ### getAllProducts
 
 ```js
-import getAllProducts from 'nextjs-commerce-shopify/dist/api/get-all-products';
+import { getAllProducts } from 'nextjs-commerce-shopify';
 
 const products = await getAllProducts({
   domain,
@@ -161,10 +173,10 @@ const products = await getAllProducts({
 });
 ```
 
-### getCollections
+### getAllCollections
 
 ```js
-import getCollections from 'nextjs-commerce-shopify/dist/api/get-collections';
+import { getAllCollections } from 'nextjs-commerce-shopify';
 
 const collections = await getCollections({
   domain,
@@ -175,7 +187,7 @@ const collections = await getCollections({
 ### getAllPages
 
 ```js
-import getAllPages from 'nextjs-commerce-shopify/dist/api/get-all-pages';
+import { getAllPages } from 'nextjs-commerce-shopify';
 
 const pages = await getAllPages({
   domain,
