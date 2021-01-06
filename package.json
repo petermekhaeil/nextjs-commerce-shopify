@@ -1,9 +1,10 @@
 {
   "name": "nextjs-commerce-shopify",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Collection of hooks and data fetching functions to integrate Shopify in a React application.",
+  "main": "./dist/index.js",
   "scripts": {
+    "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -20,5 +21,16 @@
   "bugs": {
     "url": "https://github.com/petermekhaeil/nextjs-commerce-shopify/issues"
   },
-  "homepage": "https://github.com/petermekhaeil/nextjs-commerce-shopify#readme"
+  "homepage": "https://github.com/petermekhaeil/nextjs-commerce-shopify#readme",
+  "peerDependencies": {
+    "react": "^16.14.0"
+  },
+  "dependencies": {
+    "shopify-buy": "^2.11.0"
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.0",
+    "@types/shopify-buy": "^2.10.3",
+    "typescript": "^4.1.3"
+  }
 }
