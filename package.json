@@ -1,6 +1,6 @@
 {
   "name": "nextjs-commerce-shopify",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Collection of hooks and data fetching functions to integrate Shopify in a React application.",
   "main": "./dist/index.js",
   "scripts": {
