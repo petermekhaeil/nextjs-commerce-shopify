@@ -17,7 +17,7 @@
 
 Collection of hooks and data fetching functions to integrate Shopify in a React application. Designed to work with Next.js (See [Next.js Commerce](https://demo.vercel.store/)).
 
-> This project is under active development. APIs may change to suit the [Next.js Commerce Framework](https://github.com/vercel/commerce-framework).
+The data is fetched using the [Shopify JavaScript Buy SDK](https://github.com/Shopify/js-buy-sdk#readme). Read the [Shopify Storefront API reference](https://shopify.dev/docs/storefront-api/reference) for more information.
 
 ## Getting Started
 
@@ -65,8 +65,8 @@ import { useCommerce } from 'nextjs-commerce-shopify';
 const { checkout, shop } = useCommerce();
 ```
 
-- `checkout`: The information required to checkout items and pay.
-- `shop`: Represents a collection of the general settings and information about the shop.
+- `checkout`: The information required to checkout items and pay ([Documentation](https://shopify.dev/docs/storefront-api/reference/checkouts/checkout)).
+- `shop`: Represents a collection of the general settings and information about the shop ([Documentation](https://shopify.dev/docs/storefront-api/reference/online-store/shop/index)).
 
 ## Hooks
 
