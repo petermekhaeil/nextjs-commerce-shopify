@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased
+
+- `CommerceProvider`: `currencyCode` now optional.
+- `CommerceProvider`: Added `locale` config to be used in currency code format.
+
 ## [1.0.1] - 2021-01-07
 
 - Add typing for `shopify-buy` dependency.

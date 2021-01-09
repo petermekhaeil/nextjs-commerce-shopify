@@ -53,7 +53,8 @@ The `config` takes:
 
 - `domain`: Shopify domain. This is **required**.
 - `token`: Shopify Storefront API Access Token. This is **required**.
-- `currencyCode`: Currency code to use in store. This is **required**.
+- `currencyCode`: Currency code to use in store. Defaults to your Shopify default currency.
+- `locale`: Used for currency format and if your Shopify supports translated content. Defaults to `en-US`.
 
 ### useCommerce
 
