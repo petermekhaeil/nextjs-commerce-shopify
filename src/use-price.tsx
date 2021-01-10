@@ -25,9 +25,8 @@ export default function usePrice(
     variant?: ProductVariant;
   } | null
 ) {
-  const { currencyCode } = useCommerce();
+  const { currencyCode, locale } = useCommerce();
   const { amount, variant } = data ?? {};
-  const locale = 'en-US';
   let variantPriceInCurrency = -1;
 
   if (variant && variant.presentmentPrices) {
