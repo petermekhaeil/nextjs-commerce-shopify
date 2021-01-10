@@ -4,6 +4,9 @@
 
 - `CommerceProvider`: `currencyCode` now optional.
 - `CommerceProvider`: Added `locale` config to be used in currency code format.
+- `useAddItem`: Convert from array of items to single item add. To match API documentation.
+- `usePrice`: Avoid possibility of a negative value.
+- Added tests.
 
 ## [1.0.1] - 2021-01-07
 
