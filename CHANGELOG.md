@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## [1.1.0] - 2021-01-10
 
 - `CommerceProvider`: `currencyCode` now optional.
 - `CommerceProvider`: Added `locale` config to be used in currency code format.
