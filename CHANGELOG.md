@@ -1,6 +1,6 @@
 # Changelog
 
-## [1.1.0] - 2021-01-10
+## [1.1.1] - 2021-01-10
 
 - `usePrice`: Use `locale` from configuration.
 
