@@ -6,8 +6,8 @@ const useAddItem = () => {
   const { checkout, client, updateCheckout } = useCommerce();
 
   return useCallback(
-    async function addItem(lineItems: LineItemToAdd[]) {
-      const cart = await client?.checkout.addLineItems(checkout.id, lineItems);
+    async function addItem(lineItem: LineItemToAdd) {
+      const cart = await client?.checkout.addLineItems(checkout.id, [lineItem]);
       updateCheckout(cart);
       return cart;
     },
