@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import { useCommerce } from './index';
+import { useCommerce } from './commerce';
 import { ProductVariant } from './utils/types';
 
 export function formatPrice({
@@ -30,11 +30,7 @@ export default function usePrice(
   const locale = 'en-US';
   let variantPriceInCurrency = -1;
 
-  if (!currencyCode) {
-    return { price: '' };
-  }
-
-  if (variant) {
+  if (variant && variant.presentmentPrices) {
     const pricePresentmentInCurrency = variant.presentmentPrices.find(
       (presentmentPrice) => {
         return presentmentPrice.price.currencyCode === currencyCode;
@@ -42,11 +38,16 @@ export default function usePrice(
     );
 
     if (pricePresentmentInCurrency) {
-      variantPriceInCurrency = +pricePresentmentInCurrency.price.amount;
+      variantPriceInCurrency = pricePresentmentInCurrency.price.amount;
     }
   }
 
   const amountToUse = amount || variantPriceInCurrency;
+
+  // best to return empty string than an incorrect value
+  if (amountToUse < 0) {
+    return { price: '' };
+  }
 
   const value = useMemo(() => {
     return formatPrice({ amount: amountToUse, currencyCode, locale });
