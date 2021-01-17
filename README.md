@@ -38,7 +38,7 @@ const App = ({ children }) => {
       config={{
         domain: 'myshop.shopify.com',
         token: 'XXXXXX',
-        currenyCode: 'SGD'
+        currencyCode: 'SGD'
       }}
     >
       {children}
