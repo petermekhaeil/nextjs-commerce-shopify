@@ -10,7 +10,7 @@
 - [APIs](#apis)
   - [getProduct](#getproduct)
   - [getAllProducts](#getallproducts)
-  - [getCollections](#getcollections)
+  - [getAllCollections](#getallcollections)
   - [getAllPages](#getallpages)
 
 # nextjs-commerce-shopify
@@ -183,7 +183,7 @@ const products = await getAllProducts({
 ```js
 import { getAllCollections } from 'nextjs-commerce-shopify';
 
-const collections = await getCollections({
+const collections = await getAllCollections({
   domain,
   token
 });
