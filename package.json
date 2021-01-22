@@ -31,7 +31,10 @@
   },
   "dependencies": {
     "@types/shopify-buy": "^2.10.3",
-    "shopify-buy": "^2.11.0"
+    "@vercel/fetch": "^6.1.0",
+    "js-cookie": "^2.2.1",
+    "shopify-buy": "^2.11.0",
+    "swr": "^0.4.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",
@@ -40,6 +43,7 @@
     "@babel/preset-typescript": "^7.12.7",
     "@testing-library/react": "^11.2.3",
     "@types/jest": "^26.0.20",
+    "@types/js-cookie": "^2.2.6",
     "@types/react": "^17.0.0",
     "babel-jest": "^26.6.3",
     "jest": "^26.6.3",
@@ -54,5 +58,9 @@
     "setupFiles": [
       "./setupJest.js"
     ]
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true
   }
 }

@@ -25,12 +25,19 @@ The data is fetched using the [Shopify JavaScript Buy SDK](https://github.com/Sh
 yarn install nextjs-commerce-shopify
 ```
 
+Environment variables need to be set:
+
+```
+SHOPIFY_STORE_DOMAIN=
+SHOPIFY_STOREFRONT_ACCESS_TOKEN=
+```
+
 ### CommerceProvider
 
 Provider component that creates the commerce context for children.
 
 ```js
-import { CommerceProvider } from 'nextjs-commerce-shopify';
+import { CommerceProvider } from 'nextjs-commerce-shopify'
 
 const App = ({ children }) => {
   return (
@@ -38,15 +45,15 @@ const App = ({ children }) => {
       config={{
         domain: 'myshop.shopify.com',
         token: 'XXXXXX',
-        currencyCode: 'SGD'
+        currencyCode: 'SGD',
       }}
     >
       {children}
     </CommerceProvider>
-  );
-};
+  )
+}
 
-export default App;
+export default App
 ```
 
 The `config` takes:
@@ -61,9 +68,9 @@ The `config` takes:
 Returns the configs that are defined in the nearest `CommerceProvider`. Also provides access to Shopify's `checkout` and `shop`.
 
 ```js
-import { useCommerce } from 'nextjs-commerce-shopify';
+import { useCommerce } from 'nextjs-commerce-shopify'
 
-const { checkout, shop } = useCommerce();
+const { checkout, shop } = useCommerce()
 ```
 
 - `checkout`: The information required to checkout items and pay ([Documentation](https://shopify.dev/docs/storefront-api/reference/checkouts/checkout)).
@@ -76,11 +83,11 @@ const { checkout, shop } = useCommerce();
 Display the product variant price according to currency and locale.
 
 ```js
-import { usePrice } from 'nextjs-commerce-shopify';
+import { usePrice } from 'nextjs-commerce-shopify'
 
 const { price } = usePrice({
-  amount
-});
+  amount,
+})
 ```
 
 Takes in either `amount` or `variant`:
@@ -91,51 +98,51 @@ Takes in either `amount` or `variant`:
 ### useAddItem
 
 ```js
-import { useAddItem } from 'nextjs-commerce-shopify';
+import { useAddItem } from 'nextjs-commerce-shopify'
 
 const AddToCartButton = ({ variantId, quantity }) => {
-  const addItem = useAddItem();
+  const addItem = useAddItem()
 
   const addToCart = async () => {
     await addItem({
       variantId,
-      quantity
-    });
-  };
+      quantity,
+    })
+  }
 
-  return <button onClick={addToCart}>Add To Cart</button>;
-};
+  return <button onClick={addToCart}>Add To Cart</button>
+}
 ```
 
 ### useRemoveItem
 
 ```js
-import { useRemoveItem } from 'nextjs-commerce-shopify';
+import { useRemoveItem } from 'nextjs-commerce-shopify'
 
 const RemoveButton = ({ item }) => {
-  const removeItem = useRemoveItem();
+  const removeItem = useRemoveItem()
 
   const handleRemove = async () => {
-    await removeItem({ id: item.id });
-  };
+    await removeItem({ id: item.id })
+  }
 
-  return <button onClick={handleRemove}>Remove</button>;
-};
+  return <button onClick={handleRemove}>Remove</button>
+}
 ```
 
 ### useUpdateItem
 
 ```js
-import { useUpdateItem } from 'nextjs-commerce-shopify';
+import { useUpdateItem } from 'nextjs-commerce-shopify'
 
 const CartItem = ({ item }) => {
-  const [quantity, setQuantity] = useState(item.quantity);
-  const updateItem = useUpdateItem(item);
+  const [quantity, setQuantity] = useState(item.quantity)
+  const updateItem = useUpdateItem(item)
 
   const updateQuantity = async (e) => {
-    const val = e.target.value;
-    await updateItem({ quantity: val });
-  };
+    const val = e.target.value
+    await updateItem({ quantity: val })
+  }
 
   return (
     <input
@@ -145,8 +152,8 @@ const CartItem = ({ item }) => {
       value={quantity}
       onChange={updateQuantity}
     />
-  );
-};
+  )
+}
 ```
 
 ## APIs
@@ -158,44 +165,50 @@ Collections of APIs to fetch data from a Shopify store:
 Get a single product by its `handle`.
 
 ```js
-import { getProduct } from 'nextjs-commerce-shopify';
+import { getProduct, getConfig } from 'nextjs-commerce-shopify'
+
+const config = getConfig()
 
 const product = await getProduct({
-  domain,
-  token,
-  handle
-});
+  variables: { slug },
+  config,
+})
 ```
 
 ### getAllProducts
 
 ```js
-import { getAllProducts } from 'nextjs-commerce-shopify';
+import { getAllProducts, getConfig } from 'nextjs-commerce-shopify'
 
-const products = await getAllProducts({
-  domain,
-  token
-});
+const config = getConfig()
+
+const { products } = await getAllProducts({
+  variables: { first: 12 },
+  config,
+})
 ```
 
 ### getAllCollections
 
 ```js
-import { getAllCollections } from 'nextjs-commerce-shopify';
+import { getAllCollections, getConfig } from 'nextjs-commerce-shopify'
 
-const collections = await getAllCollections({
-  domain,
-  token
-});
+const config = getConfig()
+
+const collections = await getCollections({
+  config,
+})
 ```
 
 ### getAllPages
 
 ```js
-import { getAllPages } from 'nextjs-commerce-shopify';
+import { getAllPages, getConfig } from 'nextjs-commerce-shopify'
+
+const config = getConfig()
 
 const pages = await getAllPages({
-  domain,
-  token
-});
+  variables: { first: 12 },
+  config,
+})
 ```

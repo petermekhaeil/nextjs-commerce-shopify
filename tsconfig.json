@@ -14,7 +14,11 @@
     "isolatedModules": true,
     "jsx": "react",
     "declaration": true,
-    "outDir": "./dist"
+    "outDir": "./dist",
+    "paths": {
+      "@commerce/*": ["src/commerce/*"],
+      "@commerce": ["src/commerce"]
+    }
   },
   "include": ["src"],
   "exclude": ["node_nodules"]

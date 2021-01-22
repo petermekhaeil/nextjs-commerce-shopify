@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- **Breaking Changes** APIs have been updated to match what is expected in Next.js Commerce without having to make changes to your application.
+
 ## [1.1.1] - 2021-01-10
 
 - `usePrice`: Use `locale` from configuration.
