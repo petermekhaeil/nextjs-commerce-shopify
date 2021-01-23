@@ -1,7 +1,10 @@
 ## Table of Contents
 
 - [Getting Started](#getting-started)
+  - [Installation](#installation)
+- [General Usage](#general-usage)
   - [CommerceProvider](#commerceprovider)
+  - [useCommerce](#usecommerce)
 - [Hooks](#hooks)
   - [usePrice](#useprice)
   - [useAddItem](#useadditem)
@@ -15,22 +18,46 @@
 
 # nextjs-commerce-shopify
 
-Collection of hooks and data fetching functions to integrate Shopify in a React application. Designed to work with Next.js (See [Next.js Commerce](https://demo.vercel.store/)).
+Collection of hooks and data fetching functions to integrate Shopify in a React application. Designed to work with [Next.js Commerce](https://demo.vercel.store/).
 
-The data is fetched using the [Shopify JavaScript Buy SDK](https://github.com/Shopify/js-buy-sdk#readme). Read the [Shopify Storefront API reference](https://shopify.dev/docs/storefront-api/reference) for more information.
+> This package is still in heavy development until its ready to be merged back into [vercel/commerce](https://github.com/vercel/commerce). Once merged back into the project, these documentations will be updated with newer installation instructions.
 
 ## Getting Started
 
+1. Copy [`shopify`](https://github.com/petermekhaeil/nextjs-commerce-shopify/tree/use-commerce-framework/src/shopify) folder into your [`framework`](https://github.com/vercel/commerce/tree/master/framework) folder.
+
+2. Install dependencies:
+
 ```
-yarn install nextjs-commerce-shopify
+yarn install shopify-buy
+yarn install -D @types/shopify-buy
 ```
 
-Environment variables need to be set:
+3. Environment variables need to be set:
 
 ```
 SHOPIFY_STORE_DOMAIN=
 SHOPIFY_STOREFRONT_ACCESS_TOKEN=
 ```
+
+4. Point the framework to `shopify` by updating `tsconfig.json`:
+
+```
+"@framework/*": ["framework/shopify/*"],
+"@framework": ["framework/shopify"]
+```
+
+5. Update image domains list in `next.config.js`:
+
+```
+module.exports = {
+  images: {
+    domains: ['cdn.shopify.com'],
+  },
+}
+```
+
+## General Usage
 
 ### CommerceProvider
 
@@ -158,7 +185,9 @@ const CartItem = ({ item }) => {
 
 ## APIs
 
-Collections of APIs to fetch data from a Shopify store:
+Collections of APIs to fetch data from a Shopify store.
+
+The data is fetched using the [Shopify JavaScript Buy SDK](https://github.com/Shopify/js-buy-sdk#readme). Read the [Shopify Storefront API reference](https://shopify.dev/docs/storefront-api/reference) for more information.
 
 ### getProduct
 
