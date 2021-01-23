@@ -1,7 +1,9 @@
 ## Table of Contents
 
 - [Getting Started](#getting-started)
+  - [Installation](#installation)
   - [CommerceProvider](#commerceprovider)
+  - [useCommerce](#usecommerce)
 - [Hooks](#hooks)
   - [usePrice](#useprice)
   - [useAddItem](#useadditem)
@@ -15,11 +17,13 @@
 
 # nextjs-commerce-shopify
 
-Collection of hooks and data fetching functions to integrate Shopify in a React application. Designed to work with Next.js (See [Next.js Commerce](https://demo.vercel.store/)).
+Collection of hooks and data fetching functions to integrate Shopify in a React application. Designed to work with [Next.js Commerce](https://demo.vercel.store/).
 
-The data is fetched using the [Shopify JavaScript Buy SDK](https://github.com/Shopify/js-buy-sdk#readme). Read the [Shopify Storefront API reference](https://shopify.dev/docs/storefront-api/reference) for more information.
+**This package requires modifications to your Next.js Commerce application. For a smoother integration, see [v2.0](https://github.com/petermekhaeil/nextjs-commerce-shopify/tree/use-commerce-framework).**
 
 ## Getting Started
+
+### Installation
 
 ```
 yarn install nextjs-commerce-shopify
@@ -151,7 +155,9 @@ const CartItem = ({ item }) => {
 
 ## APIs
 
-Collections of APIs to fetch data from a Shopify store:
+Collections of APIs to fetch data from a Shopify store.
+
+The data is fetched using the [Shopify JavaScript Buy SDK](https://github.com/Shopify/js-buy-sdk#readme). Read the [Shopify Storefront API reference](https://shopify.dev/docs/storefront-api/reference) for more information.
 
 ### getProduct
 
