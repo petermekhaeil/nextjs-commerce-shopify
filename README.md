@@ -1,7 +1,6 @@
 ## Table of Contents
 
 - [Getting Started](#getting-started)
-  - [Installation](#installation)
 - [General Usage](#general-usage)
   - [CommerceProvider](#commerceprovider)
   - [useCommerce](#usecommerce)
