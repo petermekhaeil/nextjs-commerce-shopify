@@ -1,5 +1,7 @@
-import { ShopifyConfig } from '../index'
-import { Page, PageEdge } from '../../utils/types'
+import { getConfig, ShopifyConfig } from '../index'
+import { Page as PageType, PageEdge } from '../../utils/types'
+
+export type Page = PageType
 
 export const getAllPagesQuery = /* GraphQL */ `
   query($first: Int!) {
@@ -32,8 +34,10 @@ type ReturnType = {
   pages: Page[]
 }
 
-const getAllPages = async (options: Options): Promise<ReturnType> => {
-  const { config, variables = { first: 250 } } = options
+const getAllPages = async (options?: Options): Promise<ReturnType> => {
+  let { config, variables = { first: 250 } } = options || {}
+
+  config = getConfig(config)
 
   const { data } = await config.fetch(getAllPagesQuery, { variables })
 
@@ -41,7 +45,7 @@ const getAllPages = async (options: Options): Promise<ReturnType> => {
     return {
       ...node,
       name: node.handle,
-      url: `${config.locale}/${node.handle}`,
+      url: `${config!.locale}/${node.handle}`,
     }
   })
 

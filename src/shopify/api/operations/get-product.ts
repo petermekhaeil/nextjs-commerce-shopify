@@ -1,42 +1,9 @@
 import Client from 'shopify-buy'
 import { ShopifyConfig } from '../index'
-import { Product, ProductVariant } from '../../utils/types'
+import { Product } from '../../utils/types'
 import toCommerceProducts from '../utils/to-commerce-products'
 
-// TODO
-type ProductOptions = {
-  edges: [
-    {
-      node: {
-        __typename: string
-        displayName: string
-        values: {
-          edges: [
-            {
-              node: {
-                label: string
-              }
-            }
-          ]
-        }
-      }
-    }
-  ]
-}
-
-// TODO
-export type ProductNode = Product & {
-  productOptions: ProductOptions
-  variants: Array<ProductVariant> & {
-    edges: [
-      {
-        node: {
-          productOptions: ProductOptions
-        }
-      }
-    ]
-  }
-}
+export type ProductNode = Product
 
 type Variables = {
   slug: string

@@ -3,6 +3,8 @@ import { ShopifyConfig } from '../index'
 import { Product } from '../../utils/types'
 import toCommerceProducts from '../utils/to-commerce-products'
 
+export type ProductNode = Product
+
 type Variables = {
   first?: number
   field?: string
