@@ -26,9 +26,53 @@ export default function toCommerceProducts(products: Product[]) {
             }
           }),
         },
-        variants: [],
+        variants: {
+          edges: product.variants.map((variant) => {
+            return {
+              node: {
+                productOptions: variant.selectedOptions.map(
+                  (selectedOption) => {
+                    return {
+                      node: {
+                        __typename: 'MultipleChoiceOption',
+                        displayName: selectedOption.name,
+                        values: {
+                          edges: [
+                            {
+                              node: {
+                                label: selectedOption.value,
+                              },
+                            },
+                          ],
+                        },
+                      },
+                    }
+                  }
+                ),
+              },
+            }
+          }),
+        },
         productOptions: {
-          edges: [],
+          edges: product.options.map((option) => {
+            return {
+              node: {
+                __typename: 'MultipleChoiceOption',
+                displayName: option.name,
+                values: {
+                  edges: option.values.map((value) => {
+                    return {
+                      node: {
+                        entityId: 1,
+                        label: value.value,
+                        hexColors: [value.value],
+                      },
+                    }
+                  }),
+                },
+              },
+            }
+          }),
         },
         options: [],
       },
