@@ -21,8 +21,6 @@ async function getPage({
   preview?: boolean
 }): Promise<GetPageResult> {
   config = getConfig(config)
-
-  // TODO
   return {}
 }
 

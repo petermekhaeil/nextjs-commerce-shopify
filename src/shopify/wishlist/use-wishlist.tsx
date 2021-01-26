@@ -2,11 +2,19 @@ import { HookFetcher } from '@commerce/utils/types'
 import { SwrOptions } from '@commerce/utils/use-data'
 import useCommerceWishlist from '@commerce/wishlist/use-wishlist'
 import useCustomer from '../use-customer'
+import { Product } from '../utils/types'
 
 const defaultOpts = {}
 
 export type Wishlist = {
-  items: [{ product_id: number; variant_id: number; id: number }]
+  items: [
+    {
+      product_id: number
+      variant_id: number
+      id: number
+      product: Product
+    }
+  ]
 }
 
 export interface UseWishlistOptions {

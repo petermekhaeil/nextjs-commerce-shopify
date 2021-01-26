@@ -7,7 +7,24 @@ type Options = {
 
 const getSiteInfo = async (options: Options) => {
   // TODO
-  return { categories: [], brands: [] }
+  return {
+    categories: [
+      {
+        path: '',
+        name: '',
+        entityId: 0,
+      },
+    ],
+    brands: [
+      {
+        node: {
+          path: '',
+          name: '',
+          entityId: 0,
+        },
+      },
+    ],
+  }
 }
 
 export default getSiteInfo

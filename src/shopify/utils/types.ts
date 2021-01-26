@@ -45,6 +45,11 @@ export type ProductOptions = {
   ]
 }
 
+// TODO
+export type ProductEdge = {
+  node: Product
+}
+
 export type Product = BaseProduct & {
   handle: string
   name: string

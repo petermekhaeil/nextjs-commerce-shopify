@@ -7,10 +7,15 @@ export function emptyHook() {
         code: '',
       },
       line_items: {
-        physical_items: [],
+        physical_items: [
+          {
+            id: 0,
+            url: '',
+          },
+        ],
       },
     },
-    isEmpty: true,
+    isEmpty: false,
   }
 }
 
