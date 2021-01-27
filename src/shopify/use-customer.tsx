@@ -21,10 +21,7 @@ export function extendHook(
   swrOptions?: SwrOptions<Customer | null>
 ) {
   const useCustomer = () => {
-    return useCommerceCustomer(defaultOpts, [], customFetcher, {
-      revalidateOnFocus: false,
-      ...swrOptions,
-    })
+    return { data: null }
   }
 
   useCustomer.extend = extendHook

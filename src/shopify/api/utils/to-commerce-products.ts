@@ -40,6 +40,7 @@ export default function toCommerceProducts(products: Product[]) {
                           edges: [
                             {
                               node: {
+                                id: variant.id,
                                 label: selectedOption.value,
                               },
                             },

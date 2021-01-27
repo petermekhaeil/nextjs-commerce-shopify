@@ -26,23 +26,20 @@ export type ProductVariant = BaseProductVariant & {
 
 // TODO
 export type ProductOptions = {
-  edges: [
-    {
-      node: {
-        __typename: string
-        displayName: string
-        values: {
-          edges: [
-            {
-              node: {
-                label: string
-              }
-            }
-          ]
+  node: {
+    __typename: string
+    displayName: string
+    values: {
+      edges: [
+        {
+          node: {
+            label: string
+            id: string
+          }
         }
-      }
+      ]
     }
-  ]
+  }
 }
 
 // TODO
@@ -74,7 +71,7 @@ export type Product = BaseProduct & {
     edges: [
       {
         node: {
-          productOptions: ProductOptions
+          productOptions: ProductOptions[]
           entityId: number
         }
       }

@@ -1,8 +1,8 @@
 import { HookFetcher } from '@commerce/utils/types'
 import { SwrOptions } from '@commerce/utils/use-data'
 import useCommerceWishlist from '@commerce/wishlist/use-wishlist'
+import { Product } from '@framework/utils/types'
 import useCustomer from '../use-customer'
-import { Product } from '../utils/types'
 
 const defaultOpts = {}
 
@@ -34,28 +34,7 @@ export function extendHook(
   swrOptions?: SwrOptions<Wishlist | null, UseWishlistInput>
 ) {
   const useWishlist = ({ includeProducts }: UseWishlistOptions = {}) => {
-    const { data: customer } = useCustomer()
-    const response = useCommerceWishlist(
-      defaultOpts,
-      [
-        ['customerId', customer?.entityId],
-        ['includeProducts', includeProducts],
-      ],
-      customFetcher,
-      {
-        revalidateOnFocus: false,
-        ...swrOptions,
-      }
-    )
-
-    Object.defineProperty(response, 'isEmpty', {
-      get() {
-        return true
-      },
-      set: (x) => x,
-    })
-
-    return response
+    return { data: null }
   }
 
   useWishlist.extend = extendHook

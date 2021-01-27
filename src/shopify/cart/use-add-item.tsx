@@ -4,7 +4,7 @@ import { useCommerce } from '../index'
 
 type Options = {
   productId: number
-  variantId: number
+  variantId: string | undefined
 }
 
 const useAddItem = () => {
