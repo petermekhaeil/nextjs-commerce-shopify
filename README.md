@@ -19,7 +19,7 @@
 
 Collection of hooks and data fetching functions to integrate Shopify in a React application. Designed to work with [Next.js Commerce](https://demo.vercel.store/).
 
-**This package requires modifications to your Next.js Commerce application. For a smoother integration, see [v2.0](https://github.com/petermekhaeil/nextjs-commerce-shopify/tree/use-commerce-framework).**
+**This package requires modifications to your Next.js Commerce application. For a smoother integration, see [vercel/commerce#186](https://github.com/vercel/commerce/pull/186).**
 
 ## Getting Started
 
